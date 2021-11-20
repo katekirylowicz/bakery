@@ -4,12 +4,13 @@ import Home from "./pages/home";
 
 import "./scss/main.scss";
 import Footer from "./common/footer";
+import Hero from "./common/hero";
 
 function App() {
   return (
     <BrowserRouter>
 
-      <Home />
+      <Hero />
       <Routes>
         <Route exact path="/" element={<Home />} />
 
