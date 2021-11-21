@@ -1,0 +1,27 @@
+footer {
+  font-family: Lato;
+  font-size: 1.6rem;
+  background-color: #003049;
+  height: 20vh;
+  color: #fff;
+
+}
+
+.foo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 6vh;
+
+  div,
+  p {
+    padding-top: 2.5em;
+  }
+}
+
+.mobi_ico {
+  height: 3.5vh;
+  font-size: 1.8rem;
+  color: #fff;
+
+}
