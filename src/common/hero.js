@@ -19,7 +19,12 @@ const Hero = () => {
   return (
 
     <>
-
+      <h1 className="hero_header">
+        <span><img className="logo"
+          src="/assets/icons8-food-as-resources-50.svg"
+          alt="logo" />
+        </span>
+        Art of Bread </h1>
       <div className="container-photo">
         <Swiper navigation loop loopedSlides={1}>
           {slides.map((imgSrc) => (
