@@ -27,9 +27,9 @@ const Hero = () => {
         Art of Bread </h1>
       <div className="container-photo">
         <Swiper navigation loop loopedSlides={1}>
-          {slides.map((imgSrc) => (
-            <SwiperSlide>
-              <img src={imgSrc} alt="pic1" className="photo" />
+          {slides.map((imgSrc, index) => (
+            <SwiperSlide key={index}>
+              <img key={index} src={imgSrc} alt="pic1" className="photo" />
             </SwiperSlide>
           ))}
         </Swiper>

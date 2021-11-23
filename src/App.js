@@ -6,6 +6,7 @@ import "./scss/main.scss";
 import Footer from "./common/footer";
 import Hero from "./common/hero";
 import Copy from "./common/copy_section";
+import ProductsSection from "./common/products_section";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
 
       </Routes>
+      <ProductsSection />
       <Footer />
 
     </BrowserRouter>
