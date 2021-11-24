@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import wc from 'woocommerce-api';
 
 
 
-const ProductsSection = () => {
-
+const ProductsSection = (props) => {
+  const { addToCart } = props;
   const [products, setProducts] = useState([]);
   useEffect(() => {
     var client = new wc({
@@ -21,20 +22,24 @@ const ProductsSection = () => {
 
   return (
     <>
-      <h3>Order fresh bread with personal pickup. </h3>
-      <ul className="products_list">
-        {products.map((product) => {
-          console.log(product);
-          return (
-            <li key={product.id} className="product_item">
-              <figure>
-                <img className="product_photo" src={product.images[0].src} alt={product.name} />
-                <figcaption className="product_label">{product.name}</figcaption>
-              </figure>
-            </li>
-          )
-        })}
+      <section>
+        <h3>Order fresh bread with personal pickup. </h3>
+        <Link to="/order"> NewOrder</Link>
+        <ul className="products_list">
+          {products.map((product) => {
+            console.log(product);
+            return (
+              <li key={product.id} className="product_item">
+                <figure>
+                  <img className="product_photo" src={product.images[0].src} alt={product.name} />
+                  <figcaption className="product_label">{product.name}</figcaption>
+                </figure>
+                <button onClick={() => addToCart(product.id)}>Dodaj do koszyka</button>
+              </li>
+            );
+          })};
       </ul>
+      </section>
     </>
   );
 };
