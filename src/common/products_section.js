@@ -37,8 +37,8 @@ const ProductsSection = (props) => {
                 <button onClick={() => addToCart(product.id)}>Dodaj do koszyka</button>
               </li>
             );
-          })};
-      </ul>
+          })}
+        </ul>
       </section>
     </>
   );
