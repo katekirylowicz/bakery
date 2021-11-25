@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import wc from 'woocommerce-api';
 import Hero from "../common/hero";
 
@@ -7,9 +7,21 @@ const NewOrder = (props) => {
   const { cart, subtractFromCart, addToCart } = props;
   const [products, setProducts] = useState([]);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = (data) => {
-    console.log(data, cart);
+  // const { register, handleSubmit, formState: { errors } } = useForm();
+  // const onSubmit = (data) => {
+  //   console.log(data, cart);
+  // };
+
+  const errors = {};
+
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    const formData = new FormData(ev.currentTarget);
+    const object = {};
+    formData.forEach(function (value, key) {
+      object[key] = value;
+    });
+    console.log(object);
   };
 
 
@@ -92,26 +104,29 @@ const NewOrder = (props) => {
           Złóz zamówienie na pieczywo i odbierz osobiście rano :)
         </h2>
         <div className="OrderFormWrapper">
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form onSubmit={onSubmit}>
             <div className={`form_input${errors.user_phone ? ` has-error` : ''}`}>
               <label className="in_data"
                 htmlFor="user_phone"
               > Podaj numer telefonu:
             </label>
               <input
-                type="number"
+                type="tel"
                 id="user_phone"
                 placeholder="+48666666666"
-                {...register(
-                  "user_phone",
-                  {
-                    required: 'This is required',
-                    pattern: {
-                      value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
-                      message: 'Invalid phone number',
-                    },
-                  }
-                )}
+                name="user_phone"
+                required
+                pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+              // {...register(
+              //   "user_phone",
+              //   {
+              //     required: 'This is required',
+              //     pattern: {
+              //       value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+              //       message: 'Invalid phone number',
+              //     },
+              //   }
+              // )}
               />
               {errors.user_phone && <div className="form_error">{errors.user_phone.message}</div>}
             </div>
@@ -126,19 +141,21 @@ const NewOrder = (props) => {
                 id="date"
                 min={tomorrowDate.toISOString().split('T').shift()}
                 max={nextWeekDate.toISOString().split('T').shift()}
-                {...register("date", {
-                  required: 'This is required',
-                  valueAsDate: true,
-                  min: {
-                    value: tomorrowDate,
-                    message: 'Select date from tomorrow to next week',
-                  },
-                  max: {
-                    value: nextWeekDate,
-                    message: 'Select date from tomorrow to next week',
-                  },
-                  value: tomorrowDate.toISOString().split('T').shift(),
-                })}
+                name="date"
+                required
+              // {...register("date", {
+              //   required: 'This is required',
+              //   valueAsDate: true,
+              //   min: {
+              //     value: tomorrowDate,
+              //     message: 'Select date from tomorrow to next week',
+              //   },
+              //   max: {
+              //     value: nextWeekDate,
+              //     message: 'Select date from tomorrow to next week',
+              //   },
+              //   value: tomorrowDate.toISOString().split('T').shift(),
+              // })}
               />
               {errors.date && <div className="form_error">{errors.date.message}</div>}
             </div>
@@ -194,9 +211,11 @@ const NewOrder = (props) => {
                   type="checkbox"
                   id="accept"
                   value="1"
-                  {...register("inCheck", {
-                    required: 'This is required',
-                  })}
+                  required
+                  name="accept"
+                // {...register("inCheck", {
+                //   required: 'This is required',
+                // })}
                 />
               Wyrażam zgodę na przesyłanie informacji handlowych za pomocą środków komunikacji elektronicznej w rozumieniu ustawy z dnia 18 lipca 2002 roku o świadczenie usług drogą elektroniczną (Dz.U.2017.1219 t.j.) w formie wiadomości tekstowej sms na podany numer telefonu.
             </label>
@@ -205,7 +224,6 @@ const NewOrder = (props) => {
             <button
               className="sent"
               type="submit"
-              onClick={handleSubmit}
             >Wyślij Zamówienie</button>
           </form>
 
