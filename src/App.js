@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { BrowserRouter, Link, } from "react-router-dom";
 import { Routes, Route } from "react-router";
 
@@ -25,6 +26,7 @@ const PageNotFound = () => {
 
 function App() {
   const cartProps = useCart();
+  const [isOpen, setOpen] = React.useState(false);
 
   return (
     <>
@@ -32,11 +34,20 @@ function App() {
         <img className="cart_ico" src="/assets/shopping-basket-solid.svg" />
         <span className="cart_info">{cartProps.cart.length} szt.</span>
       </div>
+      <button
+        className={`hamburger-button ${isOpen ? "open" : "close"}`}
+        onClick={() => setOpen(!isOpen)}
+
+      >
+        <span className="bar b1"></span>
+        <span className="bar b2"></span>
+        <span className="bar b3"></span>
+      </button>
       <div className="navi_wrapper">
-        <nav>
-          <ul>
-            <li><Link to="/">Home Page</Link></li>
-            <li><Link to='/order'>Nowe Zamówienie</Link></li>
+        <nav className={`panel ${isOpen ? "open" : "close"}`}>
+          <ul className="main_navi">
+            <li className="main_navi_item"><Link to="/">Home Page</Link></li>
+            <li className="main_navi_item"><Link to='/order'>Nowe Zamówienie</Link></li>
           </ul>
         </nav>
       </div>
