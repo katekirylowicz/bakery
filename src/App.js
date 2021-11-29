@@ -30,26 +30,28 @@ function App() {
 
   return (
     <>
-      <div className="cart_wrapper">
-        <img className="cart_ico" src="/assets/shopping-basket-solid.svg" />
-        <span className="cart_info">{cartProps.cart.length} szt.</span>
-      </div>
-      <button
-        className={`hamburger-button ${isOpen ? "open" : "close"}`}
-        onClick={() => setOpen(!isOpen)}
+      <div className="container">
+        <div className="cart_wrapper">
+          <Link to='/order'><img className="cart_ico" src="/assets/shopping-basket-solid.svg" />
+            <span className="cart_info">{cartProps.cart.length} szt.</span> </Link>
+        </div>
+        <button
+          className={`hamburger-button ${isOpen ? "open" : "close"}`}
+          onClick={() => setOpen(!isOpen)}
 
-      >
-        <span className="bar b1"></span>
-        <span className="bar b2"></span>
-        <span className="bar b3"></span>
-      </button>
-      <div className="navi_wrapper">
-        <nav className={`panel ${isOpen ? "open" : "close"}`}>
-          <ul className="main_navi">
-            <li className="main_navi_item"><Link to="/">Home Page</Link></li>
-            <li className="main_navi_item"><Link to='/order'>Nowe Zamówienie</Link></li>
-          </ul>
-        </nav>
+        >
+          <span className="bar b1"></span>
+          <span className="bar b2"></span>
+          <span className="bar b3"></span>
+        </button>
+        <div className="navi_wrapper">
+          <nav className={`panel ${isOpen ? "open" : "close"}`}>
+            <ul className="main_navi">
+              <li className="main_navi_item"><Link to="/">Home Page</Link></li>
+              <li className="main_navi_item"><Link to='/order'>Nowe Zamówienie</Link></li>
+            </ul>
+          </nav>
+        </div>
       </div>
       <Routes>
         <Route path="/" element={<Home addToCart={cartProps.addToCart} />} />

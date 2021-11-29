@@ -1,23 +1,23 @@
 h2 {
-  font-family: "Lato", sans-serif;
   color: #003049;
+  font-family: "Lato", sans-serif;
   font-size: 1.8rem;
-  text-align: center;
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .OrderFormWrapper {
-  font-family: "Lato", sans-serif;
   color: #003049;
+  font-family: "Lato", sans-serif;
   font-size: 1.3rem;
 
 }
 
 form {
+  align-content: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
   margin: 30px;
 }
 
@@ -32,55 +32,91 @@ select {
 }
 
 .counter {
-  flex-direction: row;
-  width: 25px;
-  height: 25px;
-  margin: 5px;
+  border: 1px solid #003049;
   border-radius: 0.1em;
-  text-align: center;
-  font-family: "Lato", sans-serif;
   color: #003049;
+  flex-direction: row;
+  font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  border: 1px solid #003049;
+  height: 25px;
+  margin: 5px;
+  text-align: center;
+  width: 25px;
 
 }
 
 .in_qnty {
-  width: 20px;
-  height: 20px;
-  font-family: "Lato", sans-serif;
-  color: #003049;
-  font-size: 1rem;
-  font-weight: bold;
   border: 1px solid #003049;
   border-radius: 0.1em;
+  color: #003049;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
 }
 
 .addToOrder {
-  width: 15vw;
-  padding: 2px 5px;
   margin-top: 15px;
+  padding: 2px 5px;
+  width: 15vw;
 
 }
 
 .sent {
-  width: 15vw;
-  padding: 2px 5px;
-  margin-top: 15px;
+  background-color: #003049;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  color: #fff;
+  display: inline-block;
+  display: inline-block;
+  font-family: "Lato";
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 auto;
+  margin-top: 60px;
+  min-width: 200px;
+  padding: 10px 5px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration: none;
+  transition: 0.1s ease-in;
+  white-space: nowrap;
+  width: 25vw;
 
+  &:hover {
+    background-color: rgba(4, 43, 65, 0.9);
+    color: #fff;
+    font-size: 1.05rem;
+  }
 }
+
+
 
 #accept {
   margin-right: 5px;
 }
 
 .accept_text {
-  font-family: "Lato", sans-serif;
   color: #003049;
+  font-family: "Lato", sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
 
   padding: 10px 5px;
 
+}
+
+.form_input {
+  &.has-error {
+    input {
+      border: 1px dotted crimson;
+    }
+  }
+
+  .form_error {
+    color: crimson;
+    font-size: 10px;
+  }
 }

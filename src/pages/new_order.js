@@ -37,42 +37,6 @@ const NewOrder = (props) => {
     }
   }, [products]);
 
-  // const [form, setForm] = useState({ phoneNumber: " ", date: " ", qnty: 0, inCheck: false });
-
-  // const handleChange = (e) => {
-  //   console.log(e.target.type);
-  //   console.log(e.target.userPhone);
-  //   console.log(e.target.date);
-  //   console.log(e.target.qnty);
-
-  //   const { name, value } = e.target;
-  //   setForm(prevState => {
-  //     return {
-  //       ...prevState,
-  //       [name]: value
-
-  //     }
-  //   });
-  // };
-
-
-
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (form.userPhone === '^/+/[0-9]{11}$/' && form.inCheck === true) {
-  //     e.target.submit();
-  //   } else {
-  //     return (
-  //       <>
-  //         <span className="error_alert"> Telefon powinien mieć format xxx-xxx-xxx lub nie wyraziłeś zgdy na wykorzystanie numeru telefonu na potrzby realizacji zamówienia. </span>
-  //       </>
-  //     );
-  //   };
-  // };
-
-
-
-
 
   if (!cart.length) {
     return <div>Twój koszyk jest pusty</div>;
@@ -90,7 +54,7 @@ const NewOrder = (props) => {
       <Hero />
       <section>
         <h2>
-          Złóz zamówienie na pieczywo i odbierz osobiście rano :)
+          Złóz zamówienie na pieczywo i odbierz osobiście.
         </h2>
         <div className="OrderFormWrapper">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>

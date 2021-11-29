@@ -33,10 +33,10 @@
     }
 
     .b2 {
+      top: -33.33%;
 
       transform: rotate(-45deg);
       transform-origin: center;
-      top: -33.33%;
     }
 
     .b3 {
@@ -99,6 +99,8 @@
 
 ul.main_navi {
   margin: auto 0 auto auto;
+  transition: 0.4s cubic-bezier(0.42, 0, 0.34, 1.01);
+
 
   li.main_navi_item {
     font-size: 1.8em;
