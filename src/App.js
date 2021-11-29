@@ -28,13 +28,18 @@ function App() {
 
   return (
     <>
-      <nav>
-        <ul>
-          <li><Link to="/">Home Page</Link></li>
-          <li><Link to='/order'>Nowe Zamówienie</Link></li>
-          <li>w koszyku: {cartProps.cart.length}</li>
-        </ul>
-      </nav>
+      <div className="cart_wrapper">
+        <img className="cart_ico" src="/assets/shopping-basket-solid.svg" />
+        <span className="cart_info">{cartProps.cart.length} szt.</span>
+      </div>
+      <div className="navi_wrapper">
+        <nav>
+          <ul>
+            <li><Link to="/">Home Page</Link></li>
+            <li><Link to='/order'>Nowe Zamówienie</Link></li>
+          </ul>
+        </nav>
+      </div>
       <Routes>
         <Route path="/" element={<Home addToCart={cartProps.addToCart} />} />
         <Route path="/order" element={<NewOrder {...cartProps} />} />

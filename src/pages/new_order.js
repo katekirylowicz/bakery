@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import wc from 'woocommerce-api';
 import Hero from "../common/hero";
+import getCartSum from "../utils/getCartSum";
 
 const NewOrder = (props) => {
   const { cart, subtractFromCart, addToCart } = props;
@@ -182,10 +183,14 @@ const NewOrder = (props) => {
                         value={product.qty}
                       />
                     </label>
+                    * {product.price} = {(product.qty * product.price).toFixed(2)} zł
                   </li>
                 )
               })}
             </ul>
+            <div>
+              Suma: {getCartSum(cart, products).toFixed(2)} zł
+            </div>
             <div className={`form_input${errors.inCheck ? ` has-error` : ''}`}>
               <label
                 className="accept_text"
