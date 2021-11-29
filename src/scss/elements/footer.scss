@@ -28,13 +28,26 @@ footer {
   height: 3.5vh;
   margin-left: 5px;
   margin-right: 5px;
+
+  @media screen and (max-width:752px) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    display: block;
+  }
 }
 
 .contact_num {
   color: #fff;
   font-size: 1rem;
   text-decoration: none;
+  margin-left: 10px;
 
+  @media screen and (max-width:752px) {
+    font-size: 1.1rem;
+    margin-left: 10px;
+
+  }
 }
 
 /* Assets from: https://pixabay.com/pl, https://fontawesome.com/, https://icons8.com, https://fonts.google.com */

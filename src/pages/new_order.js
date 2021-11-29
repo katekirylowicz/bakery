@@ -1,16 +1,20 @@
 import React, { useCallback, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import wc from 'woocommerce-api';
 import Hero from "../common/hero";
 import getCartSum from "../utils/getCartSum";
 
 const NewOrder = (props) => {
-  const { cart, subtractFromCart, addToCart } = props;
+  const { cart, subtractFromCart, addToCart, clearCart } = props;
   const [products, setProducts] = useState([]);
+  let navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     console.log(data, cart);
+    navigate('/success');
+    clearCart();
   };
 
 
@@ -64,7 +68,7 @@ const NewOrder = (props) => {
               > Podaj numer telefonu:
             </label>
               <input
-                type="number"
+                type="tel"
                 id="user_phone"
                 placeholder="+48666666666"
                 {...register(
@@ -117,65 +121,89 @@ const NewOrder = (props) => {
                 return (
                   <li
                     key={product.id}>
-                    <span>{product.name}</span>
+                    <span>{index + 1}. {product.name}</span>
                     <label
-                      className="in_data"> szt.
-                    <button
-                        className="counter"
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (product.qty < 20) {
-                            addToCart(product.id)
-                          } else if (product.qty === 20) {
-                            return (
-                              <span className="error_alert">Zamówiona ilość produktu jest zbyt duża. Skontaktuj się z nami telefonicznie w celu ustalenia szczegłów zamówienia.</span>
-                            );
-                          };
-                        }}>+</button>
-                      <button
-                        className="counter"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (product.qty >= 1) {
-                            subtractFromCart(product.id)
-                          }
-                        }}>-</button>
-                      <input
-                        className="in_qnty"
-                        readOnly
-                        value={product.qty}
-                      />
+                      className="in_data">
                     </label>
-                    * {product.price} = {(product.qty * product.price).toFixed(2)} zł
+                    <button
+                      type="button"
+                      className="counter"
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (product.qty < 20) {
+                          addToCart(product.id)
+                        } else if (product.qty === 20) {
+                          return (
+                            alert("Zamówiona ilość  produktu z danego rodzaju jest zbyt duża. Indywidualne zamowienie moe składać się z maxymalnie 20szt. Danego produktu. Skontaktuj się z nami telefonicznie w celu ustalenia szczegłów indywidualnego zamówienia.")
+                          );
+                        };
+                      }}>+</button>
+                    <button
+                      type="button"
+                      className="counter"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (product.qty >= 1) {
+                          subtractFromCart(product.id)
+                        }
+                      }}>-</button> szt.
+
+                    <input
+                      className="in_qnty"
+                      readOnly
+                      value={product.qty}
+                    />
+                    <label className="in_qnty"></label>
+
+
+                    <label className="product_price">{product.price} zł/szt.</label>
+                    <label className="productAllPrice">Razem:</label>
+                    <input className="productAllPrice"
+                      readOnly
+                      value={(product.qty * product.price).toFixed(2) + " " + "zł"}
+                    />
+
                   </li>
                 )
               })}
             </ul>
-            <div>
+            <div className="summary">
               Suma: {getCartSum(cart, products).toFixed(2)} zł
             </div>
             <div className={`form_input${errors.inCheck ? ` has-error` : ''}`}>
               <label
                 className="accept_text"
                 htmlFor="accept">
-                <input
-                  type="checkbox"
-                  id="accept"
-                  value="1"
-                  {...register("inCheck", {
-                    required: 'This is required',
-                  })}
-                />
-              Wyrażam zgodę na przesyłanie informacji handlowych za pomocą środków komunikacji elektronicznej w rozumieniu ustawy z dnia 18 lipca 2002 roku o świadczenie usług drogą elektroniczną (Dz.U.2017.1219 t.j.) w formie wiadomości tekstowej sms na podany numer telefonu.
-            </label>
+              </label>
+              <input
+
+                type="checkbox"
+                id="accept"
+                value="1"
+                {...register("inCheck", {
+                  required: 'This is required',
+                })}
+              />
+              <label
+                className="accept_text"
+              >
+                Wyrażam zgodę na przesyłanie informacji handlowych za pomocą środków komunikacji elektronicznej w rozumieniu ustawy z dnia 18 lipca 2002 roku o świadczenie usług drogą elektroniczną (Dz.U.2017.1219 t.j.) w formie wiadomości tekstowej sms na podany numer telefonu.
+              </label>
               {errors.inCheck && <div className="form_error">{errors.inCheck.message}</div>}
             </div>
+
+
+
+
             <button
               className="sent"
               type="submit"
               onClick={handleSubmit}
             >Wyślij Zamówienie</button>
+
+
+
           </form>
 
 

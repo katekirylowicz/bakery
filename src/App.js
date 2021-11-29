@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { BrowserRouter, Link, } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router";
+
 
 
 import "./scss/main.scss";
 
 import Footer from "./common/footer";
 import NewOrder from "./pages/new_order";
+import SuccessOrder from "./pages/success_order";
 import Home from "./pages/home";
 import useCart from "./hook/useCart";
 
@@ -27,6 +29,11 @@ const PageNotFound = () => {
 function App() {
   const cartProps = useCart();
   const [isOpen, setOpen] = React.useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -56,6 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home addToCart={cartProps.addToCart} />} />
         <Route path="/order" element={<NewOrder {...cartProps} />} />
+        <Route path="/success" element={<SuccessOrder />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

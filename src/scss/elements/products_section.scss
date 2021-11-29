@@ -109,8 +109,9 @@ figure {
   max-width: 480px;
   position: absolute;
   text-transform: uppercase;
-  transition: 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
   width: 25%;
+
 
   &:hover {
     background-color: rgba(5, 34, 46, 0.7);
@@ -118,6 +119,7 @@ figure {
 
   @media screen and (max-width: 1024px) {
     width: 30%;
+
 
   }
 
@@ -138,8 +140,8 @@ figure {
   font-family: "Lato";
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 60px;
   margin-left: calc(50vw - 10vw);
+  margin-top: 60px;
   min-width: 180px;
   padding: 10px 15px;
   text-align: center;
@@ -147,6 +149,10 @@ figure {
   transition: 0.1s ease-in;
   white-space: nowrap;
   width: 20vw;
+
+  @media screen and (max-width:752px) {
+    margin-left: calc(50vw - 90px);
+  }
 
   &:hover {
     background-color: rgba(4, 43, 65, 0.9);

@@ -33,7 +33,7 @@ const ProductsSection = (props) => {
                 <figure>
                   <img className="product_photo"
                     src={product.images[0].src} alt={product.name} />
-                  <figcaption className="product_label">{product.name}</figcaption>
+                  <figcaption className="product_label">{product.name} - {product.price}zł/szt.</figcaption>
                 </figure>
                 <button
                   className="add_product_btn"
@@ -42,7 +42,7 @@ const ProductsSection = (props) => {
             );
           })}
         </ul>
-        <button className="btn_GoToCart"><Link to="/order"></Link>Przejdź do koszyka</button>
+        <Link to="/order"><button className="btn_GoToCart">Przejdź do koszyka</button></Link>
       </section>
     </>
   );

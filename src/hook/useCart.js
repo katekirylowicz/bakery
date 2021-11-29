@@ -49,10 +49,15 @@ const useCart = () => {
     ]);
   };
 
+  const clearCart = () => {
+    setCart([]);
+  }
+
   return {
     cart,
     addToCart,
     subtractFromCart,
+    clearCart,
   }
 };
 

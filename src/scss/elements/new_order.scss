@@ -1,7 +1,8 @@
 h2 {
   color: #003049;
-  font-family: "Lato", sans-serif;
-  font-size: 1.8rem;
+  font-family: "Amatic SC", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -10,6 +11,7 @@ h2 {
   color: #003049;
   font-family: "Lato", sans-serif;
   font-size: 1.3rem;
+  max-width: 50vw;
 
 }
 
@@ -21,20 +23,45 @@ form {
   margin: 30px;
 }
 
-.in_data {
+li span {
   margin-top: 15px;
+  text-transform: uppercase;
 }
 
-input,
-select {
+.in_data {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+
+input {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px dotted #003049;
+  border-radius: 0.2em;
+  line-height: 2.625rem;
+  margin-bottom: 30px;
   margin-left: 15px;
   margin-top: 15px;
+  max-width: 250px;
+  padding: 1px 10px;
+  width: 30vw;
+
+  &:focus {
+    box-shadow: 8px 8px 24px 0px rgba(187, 187, 187, 1);
+  }
+
 }
 
 .counter {
+  background-color: transparent;
   border: 1px solid #003049;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   color: #003049;
+  cursor: pointer;
   flex-direction: row;
   font-family: "Lato", sans-serif;
   font-size: 1rem;
@@ -44,24 +71,49 @@ select {
   text-align: center;
   width: 25px;
 
+  &:focus {
+    box-shadow: 8px 8px 24px 0px rgba(187, 187, 187, 1);
+  }
+
 }
 
-.in_qnty {
+input.in_qnty {
+  background-color: transparent;
   border: 1px solid #003049;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   color: #003049;
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  height: 20px;
-  width: 20px;
+  height: 28px;
+  margin: 5px;
+  max-width: 30px;
+  padding: 2px;
+  text-align: center;
+  width: 28px;
+
+
 }
 
-.addToOrder {
-  margin-top: 15px;
-  padding: 2px 5px;
-  width: 15vw;
+.product_price,
+.productAllPrice {
+  color: #003049;
+  max-width: 100px;
+  width: 30vw;
 
+}
+
+label.product_price {
+  display: block;
+}
+
+label.in_qnty {
+  border: transparent;
+}
+
+.summary {
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .sent {
@@ -74,19 +126,24 @@ select {
   font-family: "Lato";
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 auto;
+  margin-left: calc(50vw - 12.5vw);
   margin-top: 60px;
   min-width: 200px;
   padding: 10px 5px;
   text-align: center;
   text-decoration: none;
   text-decoration: none;
-  transition: 0.1s ease-in;
+  transition: 0.1s;
   white-space: nowrap;
   width: 25vw;
 
+  @media screen and (max-width:752px) {
+    margin-left: calc(50vw - 110px);
+  }
+
   &:hover {
     background-color: rgba(4, 43, 65, 0.9);
+    border: 2px solid #fff;
     color: #fff;
     font-size: 1.05rem;
   }
@@ -95,23 +152,42 @@ select {
 
 
 #accept {
-  margin-right: 5px;
+  background-color: transparent;
+  border: none;
+  border: 1px solid #003049;
+  border-radius: 0.1em;
+  cursor: pointer;
+  display: block;
+  height: 0.6em;
+  margin-bottom: 2px;
+  margin-right: 0px;
+  margin-top: 30px;
+  width: 0.6em;
+
+  &:focus {
+    box-shadow: 8px 8px 24px 0px rgba(187, 187, 187, 1);
+  }
+
 }
 
 .accept_text {
-  color: #003049;
+  color: #001f30;
+  display: block;
   font-family: "Lato", sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
+  padding: 0;
 
-  padding: 10px 5px;
+
 
 }
 
 .form_input {
   &.has-error {
     input {
-      border: 1px dotted crimson;
+
+      border: none;
+      border-bottom: 1px dotted crimson;
     }
   }
 
