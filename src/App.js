@@ -15,13 +15,13 @@ import useCart from "./hook/useCart";
 const PageNotFound = () => {
   return (
     <>
-      <h1>404</h1>
-      <span><img className="logo"
-        src="/assets/icons8-food-as-resources-50.svg"
-        alt="logo" />
-      </span>
+      <div className="pageN_container">
+        <img className="logo logoP"
+          src="/assets/icons8-food-as-resources-50.svg"
+          alt="logo" />
+        <h2 className="pegeN_header">You can't place an new order now. Page not found.</h2>
+      </div>
 
-      <h2>You can't place an new order now. Page not found.</h2>
     </>
   );
 };

@@ -5,7 +5,7 @@ const SuccessOrder = () => (
   <>
     <Hero />
     <section>
-      <h1>Twoje zamówienie zostało przyjęte</h1>
+      <h1 className="success_header">Twoje zamówienie zostało przyjęte. Zostanie zrealizowane w wybranym przez Ciebie dniu.</h1>
     </section>
   </>
 );

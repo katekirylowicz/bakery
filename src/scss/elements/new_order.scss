@@ -133,19 +133,19 @@ label.in_qnty {
   text-align: center;
   text-decoration: none;
   text-decoration: none;
-  transition: 0.1s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   width: 25vw;
-
-  @media screen and (max-width:752px) {
-    margin-left: calc(50vw - 110px);
-  }
 
   &:hover {
     background-color: rgba(4, 43, 65, 0.9);
     border: 2px solid #fff;
     color: #fff;
     font-size: 1.05rem;
+  }
+
+  @media screen and (max-width:752px) {
+    margin-left: calc(50vw - 110px);
   }
 }
 
@@ -178,8 +178,6 @@ label.in_qnty {
   font-weight: bold;
   padding: 0;
 
-
-
 }
 
 .form_input {
@@ -195,4 +193,14 @@ label.in_qnty {
     color: crimson;
     font-size: 10px;
   }
+}
+
+.success_header {
+  color: #001f30;
+  font-family: "Amatic SC", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 60px;
+  margin-top: 30px;
+  text-align: center;
 }

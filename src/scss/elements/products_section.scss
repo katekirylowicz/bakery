@@ -146,19 +146,18 @@ figure {
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
-  transition: 0.1s ease-in;
+  transition: background-color 0.2s ease-in;
   white-space: nowrap;
   width: 20vw;
-
-  @media screen and (max-width:752px) {
-    margin-left: calc(50vw - 90px);
-  }
 
   &:hover {
     background-color: rgba(4, 43, 65, 0.9);
     color: #fff;
     font-size: 1.05rem;
-
     text-decoration: none;
+  }
+
+  @media screen and (max-width:752px) {
+    margin-left: calc(50vw - 90px);
   }
 }
