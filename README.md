@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Web store for a local bakery
+
+online on: [https://katekirylowicz.github.io/bakery/](https://katekirylowicz.github.io/bakery/)
+
+## Runs on Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
