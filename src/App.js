@@ -18,8 +18,8 @@ function App() {
   return (
     <Routes basename={process.env.PUBLIC_URL}>
       <Route path="/" element={<Home {...cartProps} />} />
-      <Route path="/order" element={<NewOrder {...cartProps} />} />
-      <Route path="/success" element={<SuccessOrder {...cartProps} />} />
+      <Route path="order" element={<NewOrder {...cartProps} />} />
+      <Route path="success" element={<SuccessOrder {...cartProps} />} />
       <Route path="*" element={<PageNotFound {...cartProps} />} />
     </Routes>
   );
