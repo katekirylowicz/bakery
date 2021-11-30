@@ -1,15 +1,16 @@
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
+import getAssetPath from '../utils/getAssetPath';
 
 import SwiperCore, { Navigation } from "swiper";
 SwiperCore.use([Navigation]);
 
 const slides = [
-  "/assets/img1.jpg",
-  "/assets/img2.jpg",
-  "/assets/img3.jpg",
-  "/assets/img4.jpg",
+  getAssetPath('img1.jpg'),
+  getAssetPath('img2.jpg'),
+  getAssetPath('img3.jpg'),
+  getAssetPath('img4.jpg'),
 ];
 
 const Hero = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
     <>
       <h1 className="hero_header">
         <span><img className="logo"
-          src="/assets/icons8-food-as-resources-50.svg"
+          src={getAssetPath('icons8-food-as-resources-50.svg')}
           alt="logo" />
         </span>
         Art of Bread </h1>

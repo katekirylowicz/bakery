@@ -1,5 +1,5 @@
 import React from "react";
-
+import getAssetPath from '../utils/getAssetPath';
 
 const Footer = () => {
   return (
@@ -10,13 +10,13 @@ const Footer = () => {
           <div className="contact_section">Contact with us :
             
               <span><img className="mobi_ico"
-                src="/assets/mobile-solid.svg"
+                src={getAssetPath('mobile-solid.svg')}
                 alt="mobile-ico" /></span>
               <a className="contact_num" href="tel:+48666666666"> 666 666 666</a>
             </div>
             <div>
               <span><img className="e-mail_ico"
-                src="/assets/at-solid.svg"
+                src={getAssetPath('at-solid.svg')}
                 alt="at-ico" /></span> <a className="contact_mail" href="mailto:artofbread@gmail.com?subject=tytuł listu">artofbread@gmail.com</a>
             </div>
           </div>

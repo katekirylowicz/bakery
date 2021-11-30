@@ -1,13 +1,10 @@
 import React from "react";
-import Hero from "../common/hero";
+import { withLayout } from "../common/layout";
 
 const SuccessOrder = () => (
-  <>
-    <Hero />
-    <section>
-      <h1 className="success_header">Twoje zamówienie zostało przyjęte. Zostanie zrealizowane w wybranym przez Ciebie dniu.</h1>
-    </section>
-  </>
+  <section>
+    <h1 className="success_header">Twoje zamówienie zostało przyjęte. Zostanie zrealizowane w wybranym przez Ciebie dniu.</h1>
+  </section>
 );
 
-export default SuccessOrder;
+export default withLayout(SuccessOrder);

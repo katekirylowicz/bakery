@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import wc from 'woocommerce-api';
-import Hero from "../common/hero";
+import { withLayout } from "../common/layout";
 import getCartSum from "../utils/getCartSum";
 
 const NewOrder = (props) => {
@@ -55,7 +55,6 @@ const NewOrder = (props) => {
 
   return (
     <>
-      <Hero />
       <section>
         <h2>
           Złóz zamówienie na pieczywo i odbierz osobiście.
@@ -216,4 +215,4 @@ const NewOrder = (props) => {
 };
 
 
-export default NewOrder;
+export default withLayout(NewOrder) ;
