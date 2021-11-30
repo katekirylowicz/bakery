@@ -40,7 +40,7 @@ function App() {
       <div className="container">
         <div className="cart_wrapper">
           <Link to='/order'><img className="cart_ico" src="/assets/shopping-basket-solid.svg" />
-            <span className="cart_info">{cartProps.cart.length} szt.</span> </Link>
+            <span className="cart_info">{(cartProps && cartProps.cart) ? cartProps.cart.length : 0} szt.</span> </Link>
         </div>
         <button
           className={`hamburger-button ${isOpen ? "open" : "close"}`}
