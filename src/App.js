@@ -60,7 +60,7 @@ function App() {
           </nav>
         </div>
       </div>
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path="/" element={<Home addToCart={cartProps.addToCart} />} />
         <Route path="/order" element={<NewOrder {...cartProps} />} />
         <Route path="/success" element={<SuccessOrder />} />
