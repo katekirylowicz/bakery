@@ -5,8 +5,8 @@ const useCart = () => {
 
   useEffect(() => {
     // load from local storage
-    const savedCartJson = window.localStorage.getItem('cart') || '[]';
-    setCart(JSON.parse(savedCartJson));
+    const savedCartJson = window.localStorage.getItem('cart');
+    setCart(JSON.parse(savedCartJson) || []);
   }, []);
 
   useEffect(() => {
