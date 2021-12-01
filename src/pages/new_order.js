@@ -20,7 +20,7 @@ const NewOrder = (props) => {
 
   useEffect(() => {
     var client = new wc({
-      url: 'http://katarzyna.kirylowicz.com/local-baker',
+      url: 'https://katarzyna.kirylowicz.com/local-baker',
       consumerKey: 'ck_91ebc637962701373c3fa69c823f6e7f270d2d10',
       consumerSecret: 'cs_ef894c524d982f1046ac6a323c9e23fbbd363dce',
       wpAPI: true,
@@ -215,4 +215,4 @@ const NewOrder = (props) => {
 };
 
 
-export default withLayout(NewOrder) ;
+export default withLayout(NewOrder);
