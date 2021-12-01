@@ -46,7 +46,7 @@ const NewOrder = (props) => {
 
 
   if (!(cart && cart.length)) {
-    return <div>Twój koszyk jest pusty</div>;
+    return <div className="empty">Twój koszyk jest pusty</div>;
   }
 
 
