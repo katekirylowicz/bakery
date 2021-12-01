@@ -13,7 +13,10 @@ const ProductsSection = (props) => {
       consumerKey: 'ck_7ed733aa32fbfdf8cc8f58eca55df25aae7075ea',
       consumerSecret: 'cs_8373bf87768f96db3130a5e973e6e7b0fbc3df11',
       wpAPI: true,
-      version: 'wc/v1'
+      version: 'wc/v1',
+      axiosConfig: {
+        headers: {},
+      },
     });
     client.getAsync('products').then(function (result) {
       setProducts(JSON.parse(result.toJSON().body))
