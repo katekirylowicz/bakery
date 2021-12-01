@@ -9,9 +9,15 @@ h2.about {
   padding: 60px auto;
   text-align: center;
 
+  @media screen and (max-width:752px) {
+    font-size: 2rem;
+    padding: 30px auto;
+    line-height: 1;
+    margin-top: 5px;
+  }
+
   &::before {
     background-color: #fcbf49;
-    ;
     border-radius: 50%;
     content: "";
     display: block;
@@ -19,6 +25,11 @@ h2.about {
     margin: 20px;
     width: 100px;
 
+    @media screen and (max-width:752px) {
+      border-radius: 40%;
+      margin: 10px;
+      width: 50px;
+    }
   }
 
   &::after {
@@ -29,9 +40,20 @@ h2.about {
     height: 4px;
     margin: 20px;
     width: 100px;
+
+    @media screen and (max-width:752px) {
+      border-radius: 40%;
+      margin: 10px;
+      width: 50px;
+    }
   }
 
-
+  @media screen and (max-width:752px) {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 40px auto;
+  }
 }
 
 h3.about {
@@ -47,7 +69,6 @@ h3.about {
 
   &::before {
     background-color: #fcbf49;
-    ;
     border-radius: 50%;
     content: "";
     display: block;
@@ -55,6 +76,11 @@ h3.about {
     margin: 15px;
     width: 70px;
 
+    @media screen and (max-width:752px) {
+      border-radius: 40%;
+      margin: 10px;
+      width: 50px;
+    }
   }
 
   &::after {
@@ -65,15 +91,32 @@ h3.about {
     height: 4px;
     margin: 15px;
     width: 70px;
+
+
+    @media screen and (max-width:752px) {
+      border-radius: 40%;
+      margin: 10px;
+      width: 50px;
+    }
   }
 
+  @media screen and (max-width:752px) {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
 
+    line-height: 1;
+    padding: 30px 40px;
+  }
 }
 
 p.about {
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   font-size: 1.2rem;
   letter-spacing: 1.5px;
   padding: 60px 100px;
 
+  @media screen and (max-width:752px) {
+    font-size: 1rem;
+    padding: 20px 30px;
+  }
 }

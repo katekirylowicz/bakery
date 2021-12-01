@@ -98,7 +98,7 @@ const NewOrder = (props) => {
                   required: 'This is required',
                   valueAsDate: true,
                   min: {
-                    value: tomorrowDate,
+                    value: nowTimestamp,
                     message: 'Select date from tomorrow to next week',
                   },
                   max: {

@@ -9,7 +9,6 @@
   font-size: 4rem;
   font-weight: 700;
   margin-top: auto;
-  padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   text-align: center;
 
@@ -48,6 +47,11 @@
   display: flex;
   height: 60vh;
   width: 100%;
+
+  @media screen and (max-width:752px) {
+    height: 40vh;
+
+  }
 }
 
 .photo {
@@ -62,6 +66,11 @@
 
 .swiper-container {
   height: 50vh;
+
+  @media screen and (max-width:752px) {
+    height: 20vh;
+
+  }
 }
 
 :root {
@@ -126,4 +135,5 @@
 
 .swiper-button-lock {
   display: none;
+  ;
 }

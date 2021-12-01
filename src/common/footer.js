@@ -6,9 +6,9 @@ const Footer = () => {
     <>
       <footer>
         <div className="foo-container">
-<div>
-          <div className="contact_section">Contact with us :
-            
+          <div>
+            <div className="contact_section">
+              <div>Contact with us:</div>
               <span><img className="mobi_ico"
                 src={getAssetPath('mobile-solid.svg')}
                 alt="mobile-ico" /></span>
