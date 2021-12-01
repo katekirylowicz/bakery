@@ -1,13 +1,14 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import wc from 'woocommerce-api';
 import { withLayout } from "../common/layout";
 import getCartSum from "../utils/getCartSum";
+import useProducts from '../hook/useProducts';
+
 
 const NewOrder = (props) => {
   const { cart, subtractFromCart, addToCart, clearCart } = props;
-  const [products, setProducts] = useState([]);
+  const products = useProducts();
   let navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -16,21 +17,6 @@ const NewOrder = (props) => {
     navigate('/success');
     clearCart();
   };
-
-
-  useEffect(() => {
-    var client = new wc({
-      url: 'https://katarzyna.kirylowicz.com/local-baker',
-      consumerKey: 'ck_7ed733aa32fbfdf8cc8f58eca55df25aae7075ea',
-      consumerSecret: 'cs_8373bf87768f96db3130a5e973e6e7b0fbc3df11',
-      wpAPI: true,
-      version: 'wc/v3',
-      axiosConfig: {
-        headers: {},
-      },
-    });
-    client.getAsync('products').then(function (result) { setProducts(JSON.parse(result.toJSON().body)) });
-  }, [])
 
   const mapProduct = useCallback((cartItem) => {
     const cartItemProduct = products.find(product => product.id === cartItem.id);
@@ -78,7 +64,7 @@ const NewOrder = (props) => {
                   {
                     required: 'This is required',
                     pattern: {
-                      value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+                      value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
                       message: 'Invalid phone number',
                     },
                   }
@@ -128,7 +114,6 @@ const NewOrder = (props) => {
                       className="in_data">
                     </label>
                     <button
-                      type="button"
                       className="counter"
                       type="button"
                       onClick={(e) => {
@@ -163,7 +148,7 @@ const NewOrder = (props) => {
                     <label className="productAllPrice">Razem:</label>
                     <input className="productAllPrice"
                       readOnly
-                      value={(product.qty * product.price).toFixed(2) + " " + "zł"}
+                      value={`${(product.qty * product.price).toFixed(2)} zł`}
                     />
 
                   </li>
@@ -194,23 +179,12 @@ const NewOrder = (props) => {
               </label>
               {errors.inCheck && <div className="form_error">{errors.inCheck.message}</div>}
             </div>
-
-
-
-
             <button
               className="sent"
               type="submit"
               onClick={handleSubmit}
             >Wyślij Zamówienie</button>
-
-
-
           </form>
-
-
-
-
         </div>
       </section>
     </>

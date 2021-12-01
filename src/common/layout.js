@@ -16,7 +16,7 @@ export const Layout = ({ cart, children }) => {
     <>
       <div className="container">
         <div className="cart_wrapper">
-          <Link to='/order'><img className="cart_ico" src={getAssetPath('shopping-basket-solid.svg')} />
+          <Link to='/order'><img alt="" className="cart_ico" src={getAssetPath('shopping-basket-solid.svg')} />
             <span className="cart_info">{cart ? cart.length : 0} szt.</span> </Link>
         </div>
         <button
