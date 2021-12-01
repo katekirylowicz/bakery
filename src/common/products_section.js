@@ -10,8 +10,8 @@ const ProductsSection = (props) => {
   useEffect(() => {
     var client = new wc({
       url: 'https://katarzyna.kirylowicz.com/local-baker',
-      consumerKey: 'ck_91ebc637962701373c3fa69c823f6e7f270d2d10',
-      consumerSecret: 'cs_ef894c524d982f1046ac6a323c9e23fbbd363dce',
+      consumerKey: 'ck_7ed733aa32fbfdf8cc8f58eca55df25aae7075ea',
+      consumerSecret: 'cs_8373bf87768f96db3130a5e973e6e7b0fbc3df11',
       wpAPI: true,
       version: 'wc/v1'
     });
