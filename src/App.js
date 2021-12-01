@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 
 
@@ -16,10 +16,10 @@ function App() {
   const cartProps = useCart();
 
   return (
-    <Routes basename={process.env.PUBLIC_URL}>
+    <Routes>
       <Route path="/" element={<Home {...cartProps} />} />
-      <Route path="order" element={<NewOrder {...cartProps} />} />
-      <Route path="success" element={<SuccessOrder {...cartProps} />} />
+      <Route path="/order" element={<NewOrder {...cartProps} />} />
+      <Route path="/success" element={<SuccessOrder {...cartProps} />} />
       <Route path="*" element={<PageNotFound {...cartProps} />} />
     </Routes>
   );

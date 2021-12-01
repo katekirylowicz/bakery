@@ -19,8 +19,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "predeploy": "PUBLIC_URL=https://katekirylowicz.github.io/bakery npm run build",
-    "deploy": "PUBLIC_URL=https://katekirylowicz.github.io/bakery gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "PUBLIC_URL=http://localhost:3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
