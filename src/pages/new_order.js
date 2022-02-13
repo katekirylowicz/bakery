@@ -38,7 +38,7 @@ const NewOrder = (props) => {
 
   const nowTimestamp = Date.now();
   const tomorrowDate = new Date(nowTimestamp + (1000 * 3600 * 24));
-  const nextWeekDate = new Date(nowTimestamp + (1000 * 3600 * 24 * 7));
+  const nextWeekDate = new Date(nowTimestamp + (1000 * 3600 * 24 * 7));  
 
   return (
     <>
